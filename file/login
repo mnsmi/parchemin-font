@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inloggen</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz@14..32&display=swap" rel="stylesheet">
+    <link href="https://cdn-icons-png.flaticon.com/512/891/891399.png" rel="icon">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
+            background-image: url(https://files.123freevectors.com/wp-content/original/157834-abstract-white-background-design.jpg);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .login-container {
+            width: 90%;
+            max-width: 800px;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 15px;
+        }
+
+        button {
+            background-color: #333333;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.1s ease;
+        }
+
+        button:hover {
+            background-color: black;
+            transform: scale(0.98);
+        }
+
+        input {
+            width: 100%;
+            max-width: 400px;
+            padding: 12px 16px;
+            font-size: 16px;
+            border: 2px solid #ccc;
+            border-radius: 6px;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+            box-sizing: border-box;
+            outline: none;
+            margin-bottom: 10px;
+        }
+
+        input:focus {
+            border-color: #0078D7;
+            box-shadow: 0 0 5px rgba(0, 120, 215, 0.4);
+        }
+
+        p {
+            font-size: xx-small;
+        }
+
+        .error-message {
+            color: red;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h2>Inloggen</h2>
+        <h5>Download Parchemin font</h5>
+        <form onsubmit="validateLogin(event)">
+            <label for="username">Gebruikersnaam</label><br>
+            <input type="text" id="username" name="username" required><br>
+
+            <label for="password">Wachtwoord</label><br>
+            <input type="password" id="password" name="password" required><br>
+
+            <button type="submit">Inloggen</button>
+            <div id="errorMsg" class="error-message"></div>
+            <p>© MS</p>
+        </form>
+    </div>
+
+    <script>
+        const correctUsername = "user";
+        const correctPassword = "welcome!";
+
+        function validateLogin(event) {
+            event.preventDefault();
+
+            const username = document.getElementById('username').value.trim();
+            const password = document.getElementById('password').value.trim();
+            const errorMsg = document.getElementById('errorMsg');
+
+            if (username === correctUsername && password === correctPassword) {
+                window.location.href = "https://mnsmi.github.io/parchemin-font/Parchemin%20W01%20Drama.ttf";
+            } else {
+                errorMsg.textContent = "Onjuiste gebruikersnaam of wachtwoord. Probeer opnieuw.";
+            }
+        }
+    </script>
+</body>
+</html>
